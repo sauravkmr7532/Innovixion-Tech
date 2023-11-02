@@ -1,0 +1,44 @@
+package com.saurav.QuizzApp;
+
+public class Question
+{
+   private String text;
+   private String answer;
+
+   public Question()
+   {
+       text = "";
+       answer = "";
+   }
+
+   
+   public void setText(String questionText)
+   {
+       text = questionText;
+   }
+
+   /**
+    Sets the answer for this question.
+    @param correctResponse the answer
+    */
+   public void setAnswer(String correctResponse)
+   {
+       answer = correctResponse;
+   }
+
+   /**
+    Checks a given response for correctness.
+    @param response the response to check
+    @return true if the response was correct, false otherwise
+    */
+   public boolean checkAnswer(String response)
+   {
+       return response.equals(answer);
+   }
+
+   
+   public void display()
+   {
+       System.out.println(text);
+   }
+}
