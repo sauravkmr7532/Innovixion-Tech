@@ -1,0 +1,39 @@
+package com.saurav.QuizzApp;
+
+public class FillInQuestion extends Question{
+    private String answer;
+    private String text;
+    private boolean condition = false;
+    //Constructs a question with empty question and answer.
+    public FillInQuestion(){
+      answer = "";
+      text = "";
+    }
+
+    public void setAnswer(String correctAnswer){
+      answer = correctAnswer;
+    }
+
+    public void setText(String questionText){
+      text = questionText;
+      text = text.replaceAll("\\_.*?\\_", "____");
+    }
+
+    public boolean checkAnswer(String response){
+      if(answer.contains(response)){
+        condition = true;
+        QuestionsApp.score += 1;
+        System.out.println("Correct answer :)");
+        }
+        else{
+          condition = false;
+          System.out.println("Wrong answer :(");
+        }
+        return condition;
+    }
+
+    public void display(){
+      System.out.println(text);
+    }
+
+}
