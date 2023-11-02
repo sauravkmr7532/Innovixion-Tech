@@ -1,0 +1,57 @@
+package com.saurav.QuizzApp;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class QuestionsApp{
+
+  public static int score;
+  public static void main(String[] args){
+	  
+	NumericQuestion one = new NumericQuestion();
+    one.setText("Dehradun is the capital of Uttarakhand?");
+    one.setAnswer("true");
+
+    ChoiceQuestion two = new ChoiceQuestion();
+    two.setText("In which country was the inventor of Java born?");
+    two.addChoice("Australia", false);
+    two.addChoice("Canada", true);
+    two.addChoice("Denmark", false);
+    two.addChoice("United States", false);
+
+    NumericQuestion three = new NumericQuestion();
+    three.setText("What is the capital of Maharashtra ?");
+    three.setAnswer("mumbai");
+
+    NumericQuestion four = new NumericQuestion();
+    four.setText("What is the capital of Punjab?");
+    four.setAnswer("Chandigarh");
+
+
+
+    ArrayList<Question> list = new ArrayList<Question>();
+    list.add(one);
+    list.add(two);
+    list.add(three);
+    list.add(four);
+    
+
+    for(Question questions : list){
+      presentQuestion(questions);
+      }
+
+    System.out.println("");
+    System.out.println("Your score is " + QuestionsApp.score+ " 3 out of 4");
+    System.out.println("Thank You!");
+
+    }
+
+    public static void presentQuestion(Question question)
+    {
+      question.display();
+      System.out.print("Your answer: ");
+      Scanner in = new Scanner(System.in);
+      String response = in.nextLine();
+      System.out.println(question.checkAnswer(response));
+    }
+}
